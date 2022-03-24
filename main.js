@@ -49,7 +49,8 @@ function saveIssue(e) {
                                   '<h3>' + desc + '</h3>'+
                                   '<p><span class="glyphicon glyphicon-time"></span> ' + severity + ' '+
                                   '<span class="glyphicon glyphicon-user"></span> ' + assignedTo + '</p>'+
-                                  '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a>'
+                                  '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a>' +
+                                  '<a href="#" class="btn btn-danger" onclick="deleteIssue(\''+id+'\')">Delete</a>'
                                   '</div>';
       }
     }
