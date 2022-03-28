@@ -12,14 +12,14 @@ function saveIssue(e) {
       status: issueStatus
     }
     
-    if (sessionStorage.getItem('issues') === null) {
+    if (localStorage.getItem('issues') === null) {
       var issues = [];
       issues.push(issue);
-      sessionStorage.setItem('issues', JSON.stringify(issues));
+      localStorage.setItem('issues', JSON.stringify(issues));
     } else {
-      var issues = JSON.parse(sessionStorage.getItem('issues'));
+      var issues = JSON.parse(localStorage.getItem('issues'));
       issues.push(issue);
-      sessionStorage.setItem('issues', JSON.stringify(issues));
+      localStorage.setItem('issues', JSON.stringify(issues));
     }
     
     document.getElementById('issueInputForm').reset();
@@ -30,7 +30,7 @@ function saveIssue(e) {
   }
 
   function fetchIssues () {
-    var issues = JSON.parse(sessionStorage.getItem('issues'));
+    var issues = JSON.parse(localStorage.getItem('issues'));
     var issuesList = document.getElementById('issuesList');
     
     issuesList.innerHTML = '';
@@ -57,7 +57,7 @@ function saveIssue(e) {
   }
 
   function deleteIssue (id) {
-    var issues = JSON.parse(sessionStorage.getItem('issues'));
+    var issues = JSON.parse(localStorage.getItem('issues'));
     
     for(var i = 0; i < issues.length; i++) {
       if (issues[i].id == id) {
@@ -65,14 +65,14 @@ function saveIssue(e) {
       }
     }
     
-    sessionStorage.setItem('issues', JSON.stringify(issues));
+    localStorage.setItem('issues', JSON.stringify(issues));
     
     fetchIssues();
   }
 
 
   function setStatusClosed (id) {
-    var issues = JSON.parse(sessionStorage.getItem('issues'));
+    var issues = JSON.parse(localStorage.getItem('issues'));
     
     for(var i = 0; i < issues.length; i++) {
       if (issues[i].id == id) {
@@ -80,7 +80,7 @@ function saveIssue(e) {
       }
     }
       
-    sessionStorage.setItem('issues', JSON.stringify(issues));
+    localStorage.setItem('issues', JSON.stringify(issues));
     
     fetchIssues();
   }
